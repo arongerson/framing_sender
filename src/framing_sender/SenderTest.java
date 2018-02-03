@@ -8,8 +8,8 @@ public class SenderTest {
 		Sender bitStuffingSender = new BitStuffingSender();
 		try {
 			System.out.println(byteCountSender.getFrame("abc")); 
-			System.out.println(byteStuffingSender.getFrame(""));
-			System.out.println(bitStuffingSender.getFrame("0111112010101"));
+			System.out.println(byteStuffingSender.getFrame("ABCDEEF"));
+			System.out.println(bitStuffingSender.getFrame("0111111010101"));
 		} catch (IncorrectFormatException | EmptyPacketException e) {
 			System.out.println(e.getMessage());
 		}

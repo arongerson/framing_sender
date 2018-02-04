@@ -22,6 +22,7 @@ public class BitStuffingSender implements Sender {
 			}
 			if (isMaxSuccessiveOnes(bit)) {
 				frame.append(ESCAPE_BIT);
+				countOnes = 1;
 			}
 			frame.append(bit);
 		}

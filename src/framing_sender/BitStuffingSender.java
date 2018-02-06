@@ -20,11 +20,11 @@ public class BitStuffingSender implements Sender {
 			if (!isAcceptableBit(bit)) {
 				throw new IncorrectFormatException("incorrect data: " + packet);
 			}
+			frame.append(bit);
 			if (isMaxSuccessiveOnes(bit)) {
 				frame.append(ESCAPE_BIT);
-				countOnes = 1;
+				countOnes = 0;
 			}
-			frame.append(bit);
 		}
 		frame.append(FLAG);
 		return frame.toString();
@@ -40,6 +40,6 @@ public class BitStuffingSender implements Sender {
 		} else {
 			countOnes = 0;
 		}
-		return countOnes == MAX_SUCCESSIVE_ONES + 1;
+		return countOnes == MAX_SUCCESSIVE_ONES;
 	}
 }
